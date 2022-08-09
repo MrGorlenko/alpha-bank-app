@@ -1,6 +1,8 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
+    target: 'static',
+    ssr: false,
     title: 'alpha-app',
     meta: [
       { charset: 'utf-8' },
