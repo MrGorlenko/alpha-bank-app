@@ -15,7 +15,7 @@
         <img src="~/static/icon.png" :class="'icon'" alt="" />
         <h1 :class="'title'">Добро пожаловать!</h1>
         <h3 :class="'subtitle'">
-          Выберите, пожалуйста, какой вопрос вас интересует
+          Выберите, пожалуйста, какой продукт вас интересует
         </h3>
         <div class="d-flex flex-wrap justify-content-between container">
           <main-menu-link

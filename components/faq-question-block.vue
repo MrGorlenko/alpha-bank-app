@@ -58,7 +58,7 @@ export default {
   font-size: 17px;
   margin-top: 0;
   margin-bottom: 0;
-  width: 95%;
+  width: 90%;
 }
 
 .answer {
