@@ -10,7 +10,6 @@
       :min="min"
       :max="max"
     />
-    <!-- <div :class="$style['range-before']" :style="rangeBeforeWidth"></div> -->
     <div :class="$style['range-after']"></div>
 
     <div :class="[$style.indicators, 'd-flex justify-content-between']">
