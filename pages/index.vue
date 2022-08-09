@@ -39,7 +39,7 @@ export default {
 
   data() {
     return {
-      loaded: true,
+      loaded: false,
       show_menu: false,
       pages: [
         {
