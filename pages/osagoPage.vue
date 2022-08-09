@@ -129,10 +129,11 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/css/global.scss';
 .main {
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   position: relative;
   padding-top: 3em;
-  padding-bottom: 3em;
+  padding-bottom: 2em;
 
   .title {
     font-weight: 500;
