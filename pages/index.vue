@@ -1,7 +1,11 @@
 <template>
   <div>
     <template v-if="!loaded">
-      <preload-page />
+      <div
+        :class="'d-flex justify-content-center align-items-center flex-column main'"
+      >
+        <preload-page />
+      </div>
     </template>
 
     <template v-else>
