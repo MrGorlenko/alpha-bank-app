@@ -1,6 +1,6 @@
 <template>
   <div>
-    <template v-if="!loaded">
+    <template v-if="!isLoaded">
       <div
         :class="'d-flex justify-content-center align-items-center flex-column main'"
       >
@@ -9,23 +9,27 @@
     </template>
 
     <template v-else>
-      <burger-menu-wrapper
-        :class="'d-flex justify-content-center align-items-center flex-column main'"
-      >
-        <img src="~/static/icon.png" :class="'icon'" alt="" />
-        <h1 :class="'title'">Добро пожаловать!</h1>
-        <h3 :class="'subtitle'">
-          Выберите, пожалуйста, какой продукт вас интересует
-        </h3>
-        <div class="d-flex flex-wrap justify-content-between container">
-          <main-menu-link
-            v-for="page in pages"
-            :key="page.title"
-            :class="'cell-link'"
-            :link-to="page.link"
-            :icon-src="page.icon"
-            :label="page.title"
+      <burger-menu-wrapper>
+        <div :class="'d-flex  align-items-center flex-column main'">
+          <img
+            :src="require('~/static/icon.png')"
+            :class="'icon global-icon'"
+            alt="1"
           />
+          <h1 :class="'title'">Добро пожаловать!</h1>
+          <h3 :class="'subtitle'">
+            Выберите, пожалуйста, какой продукт вас интересует
+          </h3>
+          <div class="d-flex flex-wrap justify-content-between container">
+            <main-menu-link
+              v-for="page in pages"
+              :key="page.title"
+              :class="'cell-link'"
+              :link-to="page.link"
+              :icon-src="page.icon"
+              :label="page.title"
+            />
+          </div>
         </div>
       </burger-menu-wrapper>
     </template>
@@ -43,8 +47,6 @@ export default {
 
   data() {
     return {
-      loaded: false,
-      show_menu: false,
       pages: [
         {
           title: 'Осаго',
@@ -70,15 +72,23 @@ export default {
     }
   },
 
+  computed: {
+    isLoaded() {
+      return this.$store.getters.is_loaded
+    },
+  },
+
   created() {
-    setTimeout(() => {
-      this.loaded = true
-    }, 3000)
+    this.loadPage()
   },
 
   methods: {
-    toggleMenu() {
-      this.show_menu = !this.show_menu
+    loadPage() {
+      if (this.isLoaded) return
+      setTimeout(() => {
+        this.loaded = true
+        this.$store.dispatch('load')
+      }, 3000)
     },
   },
 }

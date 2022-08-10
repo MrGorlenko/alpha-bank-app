@@ -12,9 +12,9 @@
 
     <template v-else>
       <img
-        src="~/static/circle-logo.png"
-        :class="$style['burger-logo']"
-        alt=""
+        :src="require('~/static/circle-logo.png')"
+        :class="[$style['burger-logo'], 'global-icon']"
+        alt="2"
       />
       <div class="container">
         <div :class="[$style['burger-links']]">
